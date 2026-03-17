@@ -154,6 +154,7 @@ table {
   border-collapse: collapse;
   width: 100%;
   margin: 20px 0;
+  background-color: var(--color-code-bg);
 }
 
 th, td {
@@ -163,8 +164,12 @@ th, td {
 }
 
 th {
-  background-color: var(--color-code-bg);
+  background-color: var(--color-border);
   color: var(--color-heading);
+}
+
+td {
+  background-color: var(--color-code-bg);
 }
 
 blockquote {
@@ -186,6 +191,12 @@ blockquote {
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
 }
 </style>
@@ -219,7 +230,7 @@ blockquote {
 
 **OpenClaw** — 开源的个人AI助手平台
 
-> *"Personal AI Assistant you run on your own devices"*
+> *"Your own personal AI assistant. Any OS. Any Platform. The lobster way."*
 
 ---
 
@@ -269,6 +280,7 @@ blockquote {
 - Signal、iMessage、IRC、Microsoft Teams、Matrix
 - **飞书**、LINE、Mattermost、Nextcloud Talk
 - Nostr、Synology Chat、Tlon、Twitch、Zalo、WebChat
+- BlueBubbles (iMessage)、macOS、iOS、Android
 
 ---
 
@@ -277,11 +289,23 @@ blockquote {
 <div class="feature-box">
 
 - **GitHub星标：** 318K+ ⭐
-- **创始人：** Anthropic Claude Code核心团队
 - **开源协议：** MIT License
 - **技术栈：** Node.js ≥22、TypeScript
+- **项目性质：** 开源社区项目
 
 </div>
+
+---
+
+### 起源与发展
+
+> OpenClaw 最初是一个**个人学习AI的游乐场**，旨在构建一个真正有用的助手——可以在真实计算机上运行真实任务的助手。
+
+**项目演进：**
+
+```
+Warelay → Clawdbot → Moltbot → OpenClaw
+```
 
 ---
 
@@ -296,7 +320,7 @@ blockquote {
 
 ### 适用场景
 
-<div class="two-col">
+<div class="three-col">
 
 <div class="feature-box">
 
@@ -331,7 +355,7 @@ blockquote {
 ### 产品版本
 
 | 版本 | 标签 | 说明 |
-|------|------|------|
+|:----:|:----:|:-----|
 | Stable | vYYYY.M.D | 正式版 |
 | Beta | vYYYY.M.D-beta.N | 测试版 |
 | Dev | main分支 | 开发版 |
@@ -358,14 +382,66 @@ blockquote {
 - Vercel — 部署托管
 - Blacksmith — 工具链
 - Convex — 后端服务
+- Anthropic — Claude模型支持
 
 ---
 
 ### 社区活跃度
 
 - GitHub ⭐ **318K+**
-- GitHub Fork **61.1K+**
+- GitHub Fork **61K+**
 - Discord 社区: **discord.gg/clawd**
+- 社区展示项目: **clawhub.ai**
+
+---
+
+### MCP 支持
+
+> OpenClaw 通过 **mcporter** 支持 MCP (Model Context Protocol)
+
+- 无需重启 Gateway 即可添加/更改 MCP 服务器
+- 保持核心工具/上下文精简
+- 减少 MCP 变动对核心稳定性的影响
+
+---
+
+### 特色功能 — 社区展示
+
+<div class="two-col">
+
+<div class="feature-box">
+
+**🤖 PR 审核机器人**
+
+GitHub PR 审核 → Telegram 反馈
+
+</div>
+
+<div class="feature-box">
+
+**🍷 酒窖管理技能**
+
+从 CSV 构建本地酒窖管理技能
+
+</div>
+
+<div class="feature-box">
+
+**🛒 超市自动下单**
+
+每周菜单 → 自动下单配送
+
+</div>
+
+<div class="feature-box">
+
+**📸 截图转 Markdown**
+
+热键截图 → AI 分析 → Markdown
+
+</div>
+
+</div>
 
 ---
 
@@ -374,7 +450,7 @@ blockquote {
 ### 环境要求
 
 | 操作系统 | 要求 |
-|----------|------|
+|:--------:|:-----|
 | macOS | Node ≥22 |
 | Linux | Node ≥22 |
 | Windows | WSL2（强烈推荐） |
@@ -384,13 +460,14 @@ blockquote {
 ### 安装步骤
 
 ```bash
-# 1. 安装OpenClaw
+# 1. 安装 OpenClaw
 npm install -g openclaw@latest
+# 或: pnpm add -g openclaw@latest
 
-# 2. 启动安装向导
+# 2. 启动安装向导（推荐）
 openclaw onboard --install-daemon
 
-# 3. 启动Gateway
+# 3. 启动 Gateway
 openclaw gateway --port 18789 --verbose
 
 # 4. 发送测试消息
@@ -404,7 +481,7 @@ openclaw message send --to +1234567890 --message "Hello"
 1. 在飞书开放平台创建应用
 2. 获取 App ID 和 App Secret
 3. 配置权限
-4. 在OpenClaw配置中添加
+4. 在 OpenClaw 配置中添加
 
 ```json
 {
@@ -434,43 +511,44 @@ openclaw status
 
 ## 五、风险提示与安全建议
 
-> ⚠️ **重要：** OpenClaw连接真实通讯平台，入站DM应视为**不可信输入**
+> ⚠️ **重要：** OpenClaw 连接真实通讯平台，入站 DM 应视为**不可信输入**
 
 ---
 
-### DM配对机制
+### DM 配对机制
 
 | 策略 | 说明 |
-|------|------|
+|:----:|:-----|
 | pairing（默认） | 陌生用户需配对码 |
-| open | 允许所有DM |
+| open | 允许所有 DM |
 
 ---
 
 ### 安全检查清单
 
 - ✅ 运行 `openclaw doctor` 检查配置
-- ✅ 避免将API密钥提交到代码仓库
-- ✅ 定期更新OpenClaw版本
+- ✅ 避免将 API 密钥提交到代码仓库
+- ✅ 定期更新 OpenClaw 版本
 - ✅ 敏感数据使用本地存储
 - ✅ 飞书应用权限最小化
+- ✅ 启用 DM 配对机制（默认）
 
 ---
 
 ## 六、未来展望
 
-### 2026年路线图
+### 2026 年路线图
 
 | 方向 | 预期功能 |
-|------|----------|
-| AI模型升级 | 更强推理能力 |
+|:----:|:---------|
+| AI 模型升级 | 更强推理能力 |
 | 多模态增强 | 视频理解与分析 |
 | 企业版 | 团队协作增强 |
-| 插件市场 | 第三方技能商店 |
+| 插件市场 | 第三方技能商店 (ClawHub) |
 
 ---
 
-### 对ZZCreation的价值
+### 对 ZZCreation 的价值
 
 <div class="two-col">
 
@@ -494,6 +572,32 @@ openclaw status
 
 ---
 
+## 📚 参考资料
+
+### 官方文档
+
+- 官网：https://openclaw.ai
+- 文档：https://docs.openclaw.ai
+- GitHub：https://github.com/openclaw/openclaw
+
+### 社区资源
+
+- Discord：https://discord.gg/clawd
+- ClawHub（插件市场）：https://clawhub.ai
+- 社区展示：https://docs.openclaw.ai/start/showcase
+
+### 核心文档
+
+- VISION.md：https://github.com/openclaw/openclaw/blob/main/VISION.md
+- 安全指南：https://docs.openclaw.ai/gateway/security
+- Getting Started：https://docs.openclaw.ai/start/getting-started
+
+### 视频教程
+
+- Full Setup Walkthrough：https://www.youtube.com/watch?v=SaWSPZoPX34
+
+---
+
 <!-- _class: lead -->
 
 # 🦞 谢谢！
@@ -507,4 +611,4 @@ openclaw status
 
 ---
 
-*最后更新：2026年3月17日 | 版本：v1.0*
+*最后更新：2026年3月17日 | 版本：v1.1*
