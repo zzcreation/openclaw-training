@@ -199,6 +199,12 @@ blockquote {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
 }
+
+.four-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+}
 </style>
 
 <!-- _class: lead -->
@@ -216,11 +222,13 @@ blockquote {
 ## 📋 目录
 
 1. 什么是小龙虾？
-2. 背景故事与诞生
-3. 当前现状与生态
-4. 保姆级安装教程
-5. 风险提示与安全建议
-6. 未来展望
+2. 创始人故事
+3. 背景故事与诞生
+4. 当前现状与生态
+5. 保姆级安装教程
+6. 风险提示与安全建议
+7. 未来展望
+8. 参考资料
 
 ---
 
@@ -274,17 +282,97 @@ blockquote {
 
 ---
 
-### 支持的通讯渠道
+## 二、创始人故事
 
-- WhatsApp、Telegram、Slack、Discord、Google Chat
-- Signal、iMessage、IRC、Microsoft Teams、Matrix
-- **飞书**、LINE、Mattermost、Nextcloud Talk
-- Nostr、Synology Chat、Tlon、Twitch、Zalo、WebChat
-- BlueBubbles (iMessage)、macOS、iOS、Android
+### Peter Steinberger (steipete)
+
+<div class="feature-box">
+
+**👤 个人简介**
+
+- **GitHub**: @steipete
+- **职位**: 全职开源开发者 (Full-Time Open-Sourcerer)
+- **位置**: 维也纳 & 伦敦
+- **推特**: @steipete
+- **网站**: steipete.me
+
+</div>
 
 ---
 
-## 二、背景故事与诞生
+### 职业经历
+
+<div class="two-col">
+
+<div class="feature-box">
+
+**🎯 当前**
+
+全职开发 OpenClaw ("Clawdfather")
+
+> *"Came back from retirement to mess with AI."*
+
+</div>
+
+<div class="feature-box">
+
+**📜 之前**
+
+**PSPDFKit** 创始人
+
+- 知名 iOS/Android PDF SDK 公司
+- 成功退出后退休
+- 为"玩AI"重返开源社区
+
+</div>
+
+</div>
+
+---
+
+### 成就数据
+
+<div class="four-col">
+
+<div class="feature-box">
+
+**⭐ 42.6k**
+
+GitHub 粉丝
+
+</div>
+
+<div class="feature-box">
+
+**📝 13k+**
+
+OpenClaw 提交
+
+</div>
+
+<div class="feature-box">
+
+**⭐ 318k+**
+
+项目星标
+
+</div>
+
+<div class="feature-box">
+
+**🏆**
+
+Pair Extraordinaire x4
+Pull Shark x4
+Starstruck x4
+
+</div>
+
+</div>
+
+---
+
+## 三、背景故事与诞生
 
 <div class="feature-box">
 
@@ -318,39 +406,7 @@ Warelay → Clawdbot → Moltbot → OpenClaw
 
 ---
 
-### 适用场景
-
-<div class="three-col">
-
-<div class="feature-box">
-
-**🎨 创意设计**
-
-生成设计方案文案、客户需求整理
-
-</div>
-
-<div class="feature-box">
-
-**🏰 科技文旅**
-
-语音导览、多语言翻译、智能提醒
-
-</div>
-
-<div class="feature-box">
-
-**🎢 主题乐园运营**
-
-游客咨询自动回复、数据分析
-
-</div>
-
-</div>
-
----
-
-## 三、当前现状与生态
+## 四、当前现状与生态
 
 ### 产品版本
 
@@ -445,7 +501,7 @@ GitHub PR 审核 → Telegram 反馈
 
 ---
 
-## 四、保姆级安装教程
+## 五、保姆级安装教程
 
 ### 环境要求
 
@@ -509,7 +565,7 @@ openclaw status
 
 ---
 
-## 五、风险提示与安全建议
+## 六、风险提示与安全建议
 
 > ⚠️ **重要：** OpenClaw 连接真实通讯平台，入站 DM 应视为**不可信输入**
 
@@ -535,7 +591,7 @@ openclaw status
 
 ---
 
-## 六、未来展望
+## 七、未来展望
 
 ### 2026 年路线图
 
@@ -596,6 +652,12 @@ openclaw status
 
 - Full Setup Walkthrough：https://www.youtube.com/watch?v=SaWSPZoPX34
 
+### 创始人信息
+
+- GitHub：https://github.com/steipete
+- 推特：https://x.com/@steipete
+- 博客：https://steipete.me
+
 ---
 
 <!-- _class: lead -->
@@ -611,4 +673,4 @@ openclaw status
 
 ---
 
-*最后更新：2026年3月17日 | 版本：v1.1*
+*最后更新：2026年3月17日 | 版本：v1.2*
