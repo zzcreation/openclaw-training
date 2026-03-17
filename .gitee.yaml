@@ -1,0 +1,5 @@
+version: 1
+name: openclaw-training
+front_page: index.html
+routes:
+  /: index.html

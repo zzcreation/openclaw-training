@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw小龙虾培训 - ZZCreation团队</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/white.css">
+    <style>
+        .reveal { font-size: 28px; }
+        .reveal h1 { font-size: 2.2em; }
+        .reveal h2 { font-size: 1.6em; }
+        .reveal h3 { font-size: 1.3em; }
+        .reveal table { font-size: 0.65em; }
+        .reveal pre { font-size: 0.6em; }
+        .highlight { color: #e74c3c; }
+        .feature-box { 
+            background: #f8f9fa; 
+            padding: 20px; 
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .two-col { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- 封面 -->
+            <section>
+                <h1>🦞 OpenClaw小龙虾</h1>
+                <h3>个人AI助手平台培训</h3>
+                <p>面向 ZZCreation 团队</p>
+                <p><small>2026年第一季度</small></p>
+            </section>
+
+            <!-- 目录 -->
+            <section>
+                <h2>📋 目录</h2>
+                <ol>
+                    <li>什么是小龙虾？</li>
+                    <li>背景故事与诞生</li>
+                    <li>当前现状与生态</li>
+                    <li>保姆级安装教程</li>
+                    <li>风险提示与安全建议</li>
+                    <li>未来展望</li>
+                </ol>
+            </section>
+
+            <!-- 一、什么是小龙虾 -->
+            <section>
+                <section>
+                    <h2>一、什么是小龙虾？</h2>
+                    <h3>1.1 产品定义</h3>
+                    <p><strong>OpenClaw</strong> — 开源的个人AI助手平台</p>
+                    <blockquote>
+                        <small>"Personal AI Assistant you run on your own devices"</small>
+                    </blockquote>
+                </section>
+                
+                <section>
+                    <h3>1.2 核心特性</h3>
+                    <div class="two-col">
+                        <div class="feature-box">
+                            <strong>本地优先</strong><br>
+                            <small>数据存储本地，保护创意/客户数据</small>
+                        </div>
+                        <div class="feature-box">
+                            <strong>多通道接入</strong><br>
+                            <small>支持20+即时通讯平台</small>
+                        </div>
+                        <div class="feature-box">
+                            <strong>语音交互</strong><br>
+                            <small>支持语音唤醒+对话</small>
+                        </div>
+                        <div class="feature-box">
+                            <strong>Canvas画布</strong><br>
+                            <small>实时可视化工作区</small>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>1.3 支持的通讯渠道</h3>
+                    <div style="font-size: 0.7em;">
+                    <p>WhatsApp、Telegram、Slack、Discord、Google Chat、Signal、iMessage、IRC、Microsoft Teams、Matrix、<strong>飞书</strong>、LINE、Mattermost、Nextcloud Talk、Nostr、Synology Chat、Tlon、Twitch、Zalo、WebChat
+                    </p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 二、背景故事 -->
+            <section>
+                <section>
+                    <h2>二、背景故事与诞生</h2>
+                    <div class="feature-box">
+                        <ul>
+                            <li><strong>GitHub星标：</strong> 318K+ ⭐</li>
+                            <li><strong>创始人：</strong> Anthropic Claude Code核心团队</li>
+                            <li><strong>开源协议：</strong> MIT License</li>
+                            <li><strong>技术栈：</strong> Node.js ≥22、TypeScript</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>设计理念</h3>
+                    <ol>
+                        <li><strong>本地化</strong> — 你的数据你做主</li>
+                        <li><strong>可扩展</strong> — 技能系统支持自定义工具</li>
+                        <li><strong>多模态</strong> — 文字/语音/图像/视频全覆盖</li>
+                        <li><strong>跨平台</strong> — macOS/Linux/Windows/iOS/Android</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h3>适用场景</h3>
+                    <div class="two-col">
+                        <div class="feature-box">
+                            <h4>🎨 创意设计</h4>
+                            <small>生成设计方案文案、客户需求整理</small>
+                        </div>
+                        <div class="feature-box">
+                            <h4>🏰 科技文旅</h4>
+                            <small>语音导览、多语言翻译、智能提醒</small>
+                        </div>
+                        <div class="feature-box">
+                            <h4>🎢 主题乐园运营</h4>
+                            <small>游客咨询自动回复、数据分析</small>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 三、当前现状 -->
+            <section>
+                <section>
+                    <h2>三、当前现状与生态</h2>
+                    <h3>产品版本</h3>
+                    <table>
+                        <tr><th>版本</th><th>标签</th><th>说明</th></tr>
+                        <tr><td>Stable</td><td>vYYYY.M.D</td><td>正式版</td></tr>
+                        <tr><td>Beta</td><td>vYYYY.M.D-beta.N</td><td>测试版</td></tr>
+                        <tr><td>Dev</td><td>main分支</td><td>开发版</td></tr>
+                    </table>
+                </section>
+
+                <section>
+                    <h3>核心架构</h3>
+                    <pre style="font-size: 0.5em;">
+┌─────────────────────────────────────────────────┐
+│            OpenClaw Gateway                     │
+├─────────────────────────────────────────────────┤
+│  Channel Manager │ Agent Runtime │ Skills Engine│
+├─────────────────────────────────────────────────┤
+│              本地数据存储                         │
+└─────────────────────────────────────────────────┘
+                    </pre>
+                </section>
+
+                <section>
+                    <h3>集成合作伙伴</h3>
+                    <ul>
+                        <li>OpenAI — 底层模型支持</li>
+                        <li>Vercel — 部署托管</li>
+                        <li>Blacksmith — 工具链</li>
+                        <li>Convex — 后端服务</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>社区活跃度</h3>
+                    <ul>
+                        <li>GitHub ⭐ 318K+</li>
+                        <li>GitHub Fork 61.1K+</li>
+                        <li>Discord 社区: discord.gg/clawd</li>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- 四、安装教程 -->
+            <section>
+                <section>
+                    <h2>四、保姆级安装教程</h2>
+                    <h3>环境要求</h3>
+                    <table>
+                        <tr><th>操作系统</th><th>要求</th></tr>
+                        <tr><td>macOS</td><td>Node ≥22</td></tr>
+                        <tr><td>Linux</td><td>Node ≥22</td></tr>
+                        <tr><td>Windows</td><td>WSL2（强烈推荐）</td></tr>
+                    </table>
+                </section>
+
+                <section>
+                    <h3>安装步骤</h3>
+                    <pre><code># 1. 安装OpenClaw
+npm install -g openclaw@latest
+
+# 2. 启动安装向导
+openclaw onboard --install-daemon
+
+# 3. 启动Gateway
+openclaw gateway --port 18789 --verbose
+
+# 4. 发送测试消息
+openclaw message send --to +1234567890 --message "Hello"</code></pre>
+                </section>
+
+                <section>
+                    <h3>飞书配置</h3>
+                    <ol>
+                        <li>在飞书开放平台创建应用</li>
+                        <li>获取 App ID 和 App Secret</li>
+                        <li>配置权限</li>
+                        <li>在OpenClaw配置中添加</li>
+                    </ol>
+                    <pre><code>{
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "appId": "YOUR_APP_ID",
+      "appSecret": "YOUR_APP_SECRET"
+    }
+  }
+}</code></pre>
+                </section>
+
+                <section>
+                    <h3>验证安装</h3>
+                    <pre><code># 运行诊断
+openclaw doctor
+
+# 检查状态
+openclaw status</code></pre>
+                </section>
+            </section>
+
+            <!-- 五、风险提示 -->
+            <section>
+                <section>
+                    <h2>五、风险提示与安全建议</h2>
+                    <div class="feature-box" style="background: #fff3cd;">
+                        <p><strong>⚠️ 重要：</strong> OpenClaw连接真实通讯平台，入站DM应视为<strong>不可信输入</strong></p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>DM配对机制</h3>
+                    <table>
+                        <tr><th>策略</th><th>说明</th></tr>
+                        <tr><td>pairing（默认）</td><td>陌生用户需配对码</td></tr>
+                        <tr><td>open</td><td>允许所有DM</td></tr>
+                    </table>
+                </section>
+
+                <section>
+                    <h3>安全检查清单</h3>
+                    <ul>
+                        <li>✅ 运行 openclaw doctor 检查配置</li>
+                        <li>✅ 避免将API密钥提交到代码仓库</li>
+                        <li>✅ 定期更新OpenClaw版本</li>
+                        <li>✅ 敏感数据使用本地存储</li>
+                        <li>✅ 飞书应用权限最小化</li>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- 六、未来展望 -->
+            <section>
+                <section>
+                    <h2>六、未来展望</h2>
+                    <h3>2026年路线图</h3>
+                    <table>
+                        <tr><th>方向</th><th>预期功能</th></tr>
+                        <tr><td>AI模型升级</td><td>更强推理能力</td></tr>
+                        <tr><td>多模态增强</td><td>视频理解与分析</td></tr>
+                        <tr><td>企业版</td><td>团队协作增强</td></tr>
+                        <tr><td>插件市场</td><td>第三方技能商店</td></tr>
+                    </table>
+                </section>
+
+                <section>
+                    <h3>对ZZCreation的价值</h3>
+                    <div class="two-col">
+                        <div class="feature-box">
+                            <h4>🎯 短期（Q1-Q2）</h4>
+                            <small>飞书集成、客户沟通效率提升</small>
+                        </div>
+                        <div class="feature-box">
+                            <h4>🎯 中期（Q3-Q4）</h4>
+                            <small>主题乐园智能客服、数据分析</small>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- 结束 -->
+            <section>
+                <h1>🦞 谢谢！</h1>
+                <h3>加入社区</h3>
+                <ul>
+                    <li>官网：openclaw.ai</li>
+                    <li>文档：docs.openclaw.ai</li>
+                    <li>Discord：discord.gg/clawd</li>
+                    <li>GitHub：github.com/openclaw/openclaw</li>
+                </ul>
+                <p style="margin-top: 40px;">
+                    <small>最后更新：2026年3月17日 | 版本：v1.0</small>
+                </p>
+            </section>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide',
+            controls: true,
+            progress: true,
+            center: true,
+            slideNumber: true,
+        });
+    </script>
+</body>
+</html>
