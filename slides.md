@@ -5,15 +5,19 @@ paginate: true
 ---
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 :root {
-  --color-background: #0d1117;
-  --color-foreground: #c9d1d9;
-  --color-heading: #58a6ff;
-  --color-accent: #7ee787;
-  --color-code-bg: #161b22;
-  --color-border: #30363d;
+  /* 白色主题 - 参考 Claude Code 官网风格 */
+  --color-background: #ffffff;
+  --color-foreground: #1f2937;
+  --color-heading: #111827;
+  --color-accent: #10b981;     /* 绿色 */
+  --color-accent-gold: #f59e0b; /* 金色 */
+  --color-accent-purple: #8b5cf6; /* 紫色 */
+  --color-code-bg: #f9fafb;
+  --color-border: #e5e7eb;
+  --color-muted: #6b7280;
   --font-default: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-code: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
 }
@@ -24,44 +28,38 @@ section {
   font-family: var(--font-default);
   font-weight: 400;
   box-sizing: border-box;
-  border-left: 4px solid var(--color-accent);
+  border: none;
   position: relative;
-  line-height: 1.6;
+  line-height: 1.7;
   font-size: 20px;
   padding: 56px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-heading);
   margin: 0;
   padding: 0;
-  font-family: var(--font-code);
+  font-family: var(--font-default);
+  letter-spacing: -0.03em;
 }
 
 h1 {
-  font-size: 56px;
-  line-height: 1.2;
+  font-size: clamp(40px, 8vw, 72px);
+  line-height: 1.1;
   text-align: left;
-  letter-spacing: -0.02em;
-  margin-bottom: 24px;
 }
 
 h1::before {
   content: '';
-  display: block;
-  width: 80px;
-  height: 6px;
-  background: linear-gradient(90deg, var(--color-accent), #3fb950);
-  border-radius: 3px;
-  margin-bottom: 24px;
+  display: none;
 }
 
 h2 {
-  font-size: 40px;
+  font-size: clamp(32px, 5vw, 48px);
   margin-bottom: 32px;
   padding-bottom: 16px;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 2px solid var(--color-border);
 }
 
 h2::before {
@@ -71,9 +69,9 @@ h2::before {
 
 h3 {
   color: var(--color-heading);
-  font-size: 28px;
-  margin-top: 28px;
-  margin-bottom: 16px;
+  font-size: 24px;
+  margin-top: 24px;
+  margin-bottom: 12px;
 }
 
 h3::before {
@@ -91,6 +89,11 @@ li {
 
 li::marker {
   color: var(--color-accent);
+  font-weight: 600;
+}
+
+ul, ol {
+  padding-left: 24px;
 }
 
 pre {
@@ -135,25 +138,14 @@ footer::before {
   color: var(--color-accent);
 }
 
+/* 标题页 - 参考网站的 Hero 风格 */
 section.lead {
-  border-left: none;
+  border: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(135deg, var(--color-background) 0%, rgba(88, 166, 255, 0.05) 100%);
+  background: var(--color-background);
   position: relative;
-  overflow: hidden;
-}
-
-section.lead::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(126, 231, 135, 0.08) 0%, transparent 70%);
-  pointer-events: none;
 }
 
 section.lead h1 {
@@ -161,16 +153,26 @@ section.lead h1 {
 }
 
 section.lead p {
-  font-size: 24px;
-  color: var(--color-foreground);
-  font-family: var(--font-code);
-  opacity: 0.9;
+  font-size: 22px;
+  color: var(--color-muted);
+  font-weight: 400;
+  margin-top: 8px;
 }
 
 section.lead blockquote {
-  font-size: 20px;
-  margin-top: 32px;
+  background: var(--color-code-bg);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 0 12px 12px 0;
   padding: 20px 24px;
+  margin-top: 32px;
+  font-style: normal;
+}
+
+section.lead .date-label {
+  font-family: var(--font-code);
+  font-size: 14px;
+  color: var(--color-muted);
+  margin-bottom: 16px;
 }
 
 strong {
@@ -208,19 +210,68 @@ blockquote {
   font-style: italic;
 }
 
+/* 参考网站的彩色卡片样式 */
 .feature-box {
-  background: linear-gradient(145deg, var(--color-code-bg), rgba(22, 27, 34, 0.8));
+  background: #ffffff;
   border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 16px;
+  padding: 24px;
   margin: 12px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   transition: all 0.2s ease;
 }
 
 .feature-box:hover {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 20px rgba(126, 231, 135, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transform: translateY(-2px);
+}
+
+/* 绿色卡片 - 参考网站风格 */
+.feature-box.green {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border: none;
+  color: white;
+}
+
+.feature-box.green .label {
+  color: rgba(255,255,255,0.7);
+}
+
+.feature-box.green h3, .feature-box.green p {
+  color: white;
+}
+
+/* 金色卡片 */
+.feature-box.gold {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  border: none;
+  color: white;
+}
+
+.feature-box.gold h3, .feature-box.gold p {
+  color: white;
+}
+
+/* 紫色卡片 */
+.feature-box.purple {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  border: none;
+  color: white;
+}
+
+.feature-box.purple h3, .feature-box.purple p {
+  color: white;
+}
+
+/* 标签样式 */
+.label {
+  font-family: var(--font-code);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  margin-bottom: 8px;
 }
 
 .two-col {
