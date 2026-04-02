@@ -112,30 +112,17 @@ ul, ol {
   padding-left: 24px;
 }
 
+/* 使用 Tailwind 的代码样式 */
 pre {
-  background-color: var(--color-code-bg);
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  padding: 16px;
-  overflow-x: auto;
-  font-family: var(--font-code);
-  font-size: 16px;
-  line-height: 1.5;
+  @apply bg-gray-50 border border-gray-200 rounded-lg p-4 overflow-x-auto font-mono text-base leading-relaxed;
 }
 
 code {
-  background-color: var(--color-code-bg);
-  color: var(--color-accent);
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-family: var(--font-code);
-  font-size: 0.9em;
+  @apply bg-gray-50 text-emerald-600 px-1.5 py-0.5 rounded font-mono text-sm;
 }
 
 pre code {
-  background-color: transparent;
-  padding: 0;
-  color: var(--color-foreground);
+  @apply bg-transparent p-0 text-gray-700;
 }
 
 footer {
@@ -226,80 +213,57 @@ blockquote {
   font-style: italic;
 }
 
-/* 参考网站的彩色卡片样式 */
+/* 使用 Tailwind @apply 的卡片样式 */
 .feature-box {
-  background: #ffffff;
-  border: 1px solid var(--color-border);
-  border-radius: 16px;
-  padding: 24px;
-  margin: 12px 0;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  transition: all 0.2s ease;
+  @apply bg-white border border-gray-200 rounded-2xl p-6 my-3 shadow-sm transition-all duration-200;
 }
 
 .feature-box:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transform: translateY(-2px);
+  @apply shadow-md -translate-y-0.5;
 }
 
-/* 绿色卡片 - 参考网站风格 */
+/* 绿色卡片 - 使用 Tailwind 颜色 */
 .feature-box.green {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  border: none;
-  color: white;
+  @apply bg-gradient-to-br from-emerald-500 to-emerald-600 border-none text-white;
 }
 
 .feature-box.green .label {
-  color: rgba(255,255,255,0.7);
+  @apply text-emerald-100;
 }
 
 .feature-box.green h3, .feature-box.green p {
-  color: white;
+  @apply text-white;
 }
 
 /* 金色卡片 */
 .feature-box.gold {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-  border: none;
-  color: white;
+  @apply bg-gradient-to-br from-amber-500 to-amber-600 border-none text-white;
 }
 
 .feature-box.gold h3, .feature-box.gold p {
-  color: white;
+  @apply text-white;
 }
 
 /* 紫色卡片 */
 .feature-box.purple {
-  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-  border: none;
-  color: white;
+  @apply bg-gradient-to-br from-violet-500 to-violet-600 border-none text-white;
 }
 
 .feature-box.purple h3, .feature-box.purple p {
-  color: white;
+  @apply text-white;
 }
 
-/* 标签样式 */
+/* 使用 Tailwind 的标签样式 */
 .label {
-  font-family: var(--font-code);
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-muted);
-  margin-bottom: 8px;
+  @apply font-mono text-xs font-medium uppercase tracking-widest text-gray-500 mb-2;
 }
 
 .two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  @apply grid grid-cols-1 md:grid-cols-2 gap-5;
 }
 
 .three-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  @apply grid grid-cols-1 md:grid-cols-3 gap-5;
 }
 
 .four-col {
