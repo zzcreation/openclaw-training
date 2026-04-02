@@ -4,22 +4,6 @@ theme: default
 paginate: true
 ---
 
-<!-- Tailwind CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          primary: '#10b981',
-          gold: '#f59e0b',
-          purple: '#8b5cf6',
-        }
-      }
-    }
-  }
-</script>
-
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
