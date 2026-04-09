@@ -476,6 +476,31 @@ section.lead blockquote {
   .phase-card h3, .phase-card p, .phase-card li, .phase-card .label {
     color: white;
   }
+
+  .svg-wrap {
+    margin-top: 18px;
+    border: 1px solid var(--color-border);
+    border-radius: 22px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    box-shadow: 0 10px 30px rgba(15,23,42,0.06);
+  }
+
+  .svg-wrap svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .mermaid-card {
+    margin-top: 18px;
+    padding: 18px;
+    border-radius: 22px;
+    border: 1px solid var(--color-border);
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    box-shadow: 0 10px 30px rgba(15,23,42,0.06);
+  }
+
 </style>
 
 <!-- _class: lead -->
@@ -590,14 +615,44 @@ section.lead blockquote {
 
 ## 核心架构图
 
-<div class="arch-stack">
-  <div class="arch-box"><strong>消息渠道层</strong><br>Feishu / Telegram / Dashboard / 更多平台</div>
-  <div class="arch-box" style="background:linear-gradient(135deg,#ecfeff 0%,#f0fdf4 100%);"><strong>Gateway</strong><br>消息接收、路由、权限控制、会话管理</div>
-  <div class="two-col">
-    <div class="arch-box"><strong>Agent Runtime</strong><br>上下文、推理、任务编排</div>
-    <div class="arch-box"><strong>Skills / Tools</strong><br>Browser / Exec / Docs / Search / Memory</div>
-  </div>
-  <div class="arch-box"><strong>本地状态层</strong><br>配置文件 / 日志 / 记忆 / 工作区文件</div>
+<div class="svg-wrap">
+<svg viewBox="0 0 1200 620" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ecfeff"/>
+      <stop offset="100%" stop-color="#f0fdf4"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#eef2ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="620" fill="#f8fafc"/>
+  <rect x="70" y="40" rx="26" ry="26" width="1060" height="90" fill="#ffffff" stroke="#dbeafe" stroke-width="2"/>
+  <text x="600" y="78" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">消息渠道层</text>
+  <text x="600" y="108" text-anchor="middle" font-size="16" fill="#475569">Feishu / Telegram / Dashboard / 更多平台</text>
+
+  <rect x="180" y="170" rx="30" ry="30" width="840" height="110" fill="url(#g1)" stroke="#a7f3d0" stroke-width="2"/>
+  <text x="600" y="218" text-anchor="middle" font-size="26" font-weight="800" fill="#065f46">Gateway</text>
+  <text x="600" y="248" text-anchor="middle" font-size="16" fill="#166534">消息接收、路由、权限控制、会话管理</text>
+
+  <rect x="120" y="330" rx="26" ry="26" width="450" height="120" fill="url(#g2)" stroke="#bfdbfe" stroke-width="2"/>
+  <text x="345" y="385" text-anchor="middle" font-size="24" font-weight="800" fill="#1d4ed8">Agent Runtime</text>
+  <text x="345" y="415" text-anchor="middle" font-size="16" fill="#334155">上下文、推理、任务编排</text>
+
+  <rect x="630" y="330" rx="26" ry="26" width="450" height="120" fill="url(#g2)" stroke="#c7d2fe" stroke-width="2"/>
+  <text x="855" y="385" text-anchor="middle" font-size="24" font-weight="800" fill="#4338ca">Skills / Tools</text>
+  <text x="855" y="415" text-anchor="middle" font-size="16" fill="#334155">Browser / Exec / Docs / Search / Memory</text>
+
+  <rect x="70" y="500" rx="26" ry="26" width="1060" height="78" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="600" y="533" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">本地状态层</text>
+  <text x="600" y="560" text-anchor="middle" font-size="16" fill="#475569">配置文件 / 日志 / 记忆 / 工作区文件</text>
+
+  <path d="M600 130 L600 170" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6 6"/>
+  <path d="M345 280 L345 330" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6 6"/>
+  <path d="M855 280 L855 330" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6 6"/>
+  <path d="M600 450 L600 500" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6 6"/>
+</svg>
 </div>
 
 <div class="mini-kpis">
@@ -732,22 +787,29 @@ Warelay → Clawdbot → Moltbot → OpenClaw
 
 ## WSL2 是什么
 
-<div class="two-col">
+<div class="svg-wrap">
+<svg viewBox="0 0 1200 560" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="560" fill="#f8fafc"/>
+  <rect x="60" y="60" width="1080" height="120" rx="28" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+  <text x="120" y="110" font-size="28" font-weight="800" fill="#1d4ed8">Windows 层</text>
+  <text x="120" y="145" font-size="18" fill="#334155">PowerShell、浏览器 Dashboard、飞书客户端</text>
 
-<div class="feature-box">
-<div class="label">一句话解释</div>
-<h3>Windows 里的 Linux 工作区</h3>
-<p>你平时还是用 Windows，但真正跑 OpenClaw 的，是 WSL2 里的 Ubuntu 环境，所以兼容性更稳。</p>
+  <rect x="110" y="220" width="980" height="150" rx="30" fill="#ecfdf5" stroke="#86efac" stroke-width="2"/>
+  <text x="170" y="285" font-size="32" font-weight="800" fill="#047857">WSL2 Ubuntu 层</text>
+  <text x="170" y="322" font-size="18" fill="#334155">OpenClaw CLI、Gateway 服务、配置与日志</text>
+  <text x="170" y="350" font-size="16" fill="#64748b">这是 OpenClaw 真正主要运行的环境，所以兼容性更稳。</text>
+
+  <rect x="60" y="410" width="1080" height="90" rx="28" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="2"/>
+  <text x="120" y="460" font-size="28" font-weight="800" fill="#6d28d9">外部服务层</text>
+  <text x="120" y="490" font-size="18" fill="#334155">Feishu 平台、模型 API、插件工具</text>
+
+  <path d="M600 180 L600 220" stroke="#94a3b8" stroke-width="4" stroke-dasharray="8 8"/>
+  <path d="M600 370 L600 410" stroke="#94a3b8" stroke-width="4" stroke-dasharray="8 8"/>
+</svg>
 </div>
 
-<div class="feature-box blue">
-<div class="label">三层架构</div>
-<p><strong>Windows 层</strong>：PowerShell、浏览器、飞书客户端</p>
-<p><strong>WSL2 层</strong>：OpenClaw CLI、Gateway、配置文件</p>
-<p><strong>外部服务层</strong>：Feishu 平台、模型 API、插件工具</p>
-<p class="small">消息路径：飞书消息 → Gateway → 模型/工具 → 返回飞书。</p>
-</div>
-
+<div class="note-strip">
+一句话理解，WSL2 就是在 Windows 里准备一套更稳定的 Linux 工作环境，让 OpenClaw 按它最熟悉的方式运行。
 </div>
 
 ---
@@ -821,14 +883,15 @@ systemd=true</code></pre>
 
 ## 飞书接入总览
 
-<div class="flow-band">
-  <div class="flow-node"><span class="emoji">🏢</span><strong>创建应用</strong><br><span class="small">准备企业应用</span></div>
-  <div class="flow-arrow">→</div>
-  <div class="flow-node"><span class="emoji">🔑</span><strong>拿到凭证</strong><br><span class="small">App ID / App Secret</span></div>
-  <div class="flow-arrow">→</div>
-  <div class="flow-node"><span class="emoji">🤖</span><strong>开启能力</strong><br><span class="small">Bot + 事件订阅</span></div>
-  <div class="flow-arrow">→</div>
-  <div class="flow-node"><span class="emoji">🚀</span><strong>接入测试</strong><br><span class="small">录入 OpenClaw 并发首条消息</span></div>
+<div class="mermaid-card">
+<pre class="mermaid">flowchart LR
+    A[创建企业应用] --> B[获取 App ID / App Secret]
+    B --> C[开启 Bot 能力]
+    C --> D[配置事件订阅]
+    D --> E[接入 OpenClaw]
+    E --> F[首条消息测试]
+    F --> G[完成 Pairing]
+</pre>
 </div>
 
 <div class="note-strip">
@@ -954,10 +1017,19 @@ systemd=true</code></pre>
 
 ## 五、风险提示与安全建议
 
-<div class="feature-box red">
-<div class="label">安全前提</div>
-<h3>入站消息应默认视为不可信输入</h3>
-<p>因为 OpenClaw 接入真实聊天平台，所以任何 DM、群消息、外部输入，都不应默认被视为可信操作指令。</p>
+<div class="mermaid-card">
+<pre class="mermaid">flowchart TD
+    A[外部消息进入] --> B{是否可信来源?}
+    B -- 否 --> C[默认视为不可信输入]
+    C --> D[触发 Pairing / Mention / Allowlist]
+    D --> E[人工确认高风险动作]
+    B -- 是 --> F[继续进入 Agent 处理]
+    F --> E
+</pre>
+</div>
+
+<div class="note-strip">
+因为 OpenClaw 接入真实聊天平台，所以任何 DM、群消息、外部输入，都不应默认被视为可信操作指令。
 </div>
 
 ---
