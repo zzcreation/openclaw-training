@@ -179,6 +179,13 @@ section.lead blockquote {
   padding: 20px 22px;
   margin: 12px 0;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+  border-color: #cbd5e1;
 }
 
 .feature-box.green {
@@ -291,6 +298,13 @@ section.lead blockquote {
   padding: 18px;
   background: #fff;
   position: relative;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.step-card:hover, .compare-card:hover, .kpi-card:hover, .mini-kpi:hover, .flow-node:hover, .arch-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.10);
+  border-color: #cbd5e1;
 }
 
 .step-num {
@@ -621,7 +635,7 @@ Warelay → Clawdbot → Moltbot → OpenClaw
 | **LobsterAI** | 网易有道 | 7×24小时待命、16种内置技能 | lobsterai.com |
 | **360安全龙虾** | 360 | 沙箱隔离、龙虾卫士安全防护 | - |
 
-> 这一页保留作行业观察视角，用来帮助大家理解：个人 AI 助手正在从单点问答，进入“接渠道、接工具、接工作流”的平台阶段。
+> 2026年"龙虾元年"：国内大厂纷纷推出OpenClaw衍生版本，形成"龙虾共斗"局面。
 
 ---
 
@@ -663,8 +677,6 @@ Warelay → Clawdbot → Moltbot → OpenClaw
 
 ## WSL2 是什么，以及怎么装
 
-<div class="two-col">
-
 <div class="feature-box">
 <div class="label">一句话解释</div>
 <h3>Windows 里的 Linux 工作区</h3>
@@ -673,17 +685,11 @@ Warelay → Clawdbot → Moltbot → OpenClaw
 
 <div class="feature-box blue">
 <div class="label">三层架构</div>
-<ul class="compact-list">
-<li><strong>Windows 层</strong>：PowerShell、浏览器、飞书客户端</li>
-<li><strong>WSL2 层</strong>：OpenClaw CLI、Gateway、配置文件</li>
-<li><strong>外部服务层</strong>：Feishu 平台、模型 API、插件工具</li>
-</ul>
+<p><strong>Windows 层</strong>：PowerShell、浏览器、飞书客户端<br>
+<strong>WSL2 层</strong>：OpenClaw CLI、Gateway、配置文件<br>
+<strong>外部服务层</strong>：Feishu 平台、模型 API、插件工具</p>
 <p class="small">消息路径：飞书消息 → Gateway → 模型/工具 → 返回飞书。</p>
 </div>
-
-</div>
-
-### 安装 4 步法
 
 <div class="step-flow">
 
@@ -697,7 +703,7 @@ Warelay → Clawdbot → Moltbot → OpenClaw
 <div class="step-card">
 <div class="step-num">2</div>
 <h3>开 systemd</h3>
-<p>这是安装 Gateway 服务的关键前提。</p>
+<p>在 <code>/etc/wsl.conf</code> 里开启。</p>
 <pre><code>[boot]
 systemd=true</code></pre>
 </div>
@@ -706,14 +712,14 @@ systemd=true</code></pre>
 <div class="step-num">3</div>
 <h3>装 OpenClaw</h3>
 <p>在 Ubuntu 终端里执行官方安装流程。</p>
-<pre><code>curl -fsSL https://openclaw.ai/install.sh | bash</code></pre>
+<pre><code>curl -fsSL openclaw.ai/install.sh | bash</code></pre>
 </div>
 
 <div class="step-card">
 <div class="step-num">4</div>
 <h3>跑引导</h3>
-<p>用 onboarding 完成模型、密钥和 Gateway 初始化。</p>
-<pre><code>openclaw onboard --install-daemon</code></pre>
+<p>完成模型、密钥和 Gateway 初始化。</p>
+<pre><code>openclaw onboard</code></pre>
 </div>
 
 </div>
