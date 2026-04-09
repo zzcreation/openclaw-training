@@ -486,26 +486,73 @@ section.lead blockquote {
     box-shadow: 0 10px 30px rgba(15,23,42,0.06);
   }
 
-  .diagram-box img {
+  .diagram-box svg {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 16px;
   }
 
-  .mermaid-card {
+  .html-flow {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    align-items: center;
     margin-top: 18px;
-    padding: 18px;
-    border-radius: 22px;
-    border: 1px solid var(--color-border);
-    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-    box-shadow: 0 10px 30px rgba(15,23,42,0.06);
-    overflow: hidden;
   }
 
-  .mermaid {
-    display: flex;
-    justify-content: center;
+  .html-flow .node {
+    border-radius: 18px;
+    padding: 14px 10px;
+    text-align: center;
+    border: 2px solid #dbeafe;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    box-shadow: 0 8px 24px rgba(15,23,42,0.06);
+    min-height: 94px;
+  }
+
+  .html-flow .node.blue { border-color: #93c5fd; background: linear-gradient(180deg, #eff6ff 0%, #f8fbff 100%); }
+  .html-flow .node.green { border-color: #86efac; background: linear-gradient(180deg, #ecfdf5 0%, #f7fff9 100%); }
+  .html-flow .node.purple { border-color: #c4b5fd; background: linear-gradient(180deg, #f5f3ff 0%, #fbfaff 100%); }
+  .html-flow .node.gold { border-color: #fcd34d; background: linear-gradient(180deg, #fffbeb 0%, #fffdf5 100%); }
+
+  .html-flow .arrow {
+    text-align: center;
+    font-size: 28px;
+    color: #94a3b8;
+    font-weight: 700;
+  }
+
+  .html-flow .emoji {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+
+  .html-safe {
+    display: grid;
+    grid-template-columns: 1fr 120px 1fr;
+    gap: 16px;
+    align-items: center;
+    margin-top: 18px;
+  }
+
+  .safe-card {
+    border-radius: 20px;
+    padding: 18px;
+    border: 2px solid #e2e8f0;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    box-shadow: 0 8px 24px rgba(15,23,42,0.06);
+  }
+
+  .safe-card.danger { border-color: #fca5a5; background: linear-gradient(180deg, #fef2f2 0%, #fff7f7 100%); }
+  .safe-card.warn { border-color: #fdba74; background: linear-gradient(180deg, #fff7ed 0%, #fffaf5 100%); }
+  .safe-card.safe { border-color: #86efac; background: linear-gradient(180deg, #ecfdf5 0%, #f7fff9 100%); }
+
+  .safe-bridge {
+    text-align: center;
+    font-size: 26px;
+    color: #94a3b8;
+    font-weight: 700;
   }
 
 </style>
@@ -623,7 +670,32 @@ section.lead blockquote {
 ## 核心架构图
 
 <div class="diagram-box">
-![bg contain](assets/core-architecture.svg)
+<svg viewBox="0 0 1200 620" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ecfeff"/><stop offset="100%" stop-color="#f0fdf4"/></linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#eff6ff"/><stop offset="100%" stop-color="#eef2ff"/></linearGradient>
+  </defs>
+  <rect width="1200" height="620" fill="#f8fafc"/>
+  <rect x="70" y="40" rx="26" ry="26" width="1060" height="90" fill="#ffffff" stroke="#dbeafe" stroke-width="2"/>
+  <text x="600" y="78" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">消息渠道层</text>
+  <text x="600" y="108" text-anchor="middle" font-size="16" fill="#475569">Feishu / Telegram / Dashboard / 更多平台</text>
+  <rect x="180" y="170" rx="30" ry="30" width="840" height="110" fill="url(#g1)" stroke="#a7f3d0" stroke-width="2"/>
+  <text x="600" y="218" text-anchor="middle" font-size="26" font-weight="800" fill="#065f46">Gateway</text>
+  <text x="600" y="248" text-anchor="middle" font-size="16" fill="#166534">消息接收、路由、权限控制、会话管理</text>
+  <rect x="120" y="330" rx="26" ry="26" width="450" height="120" fill="url(#g2)" stroke="#bfdbfe" stroke-width="2"/>
+  <text x="345" y="385" text-anchor="middle" font-size="24" font-weight="800" fill="#1d4ed8">Agent Runtime</text>
+  <text x="345" y="415" text-anchor="middle" font-size="16" fill="#334155">上下文、推理、任务编排</text>
+  <rect x="630" y="330" rx="26" ry="26" width="450" height="120" fill="url(#g2)" stroke="#c7d2fe" stroke-width="2"/>
+  <text x="855" y="385" text-anchor="middle" font-size="24" font-weight="800" fill="#4338ca">Skills / Tools</text>
+  <text x="855" y="415" text-anchor="middle" font-size="16" fill="#334155">Browser / Exec / Docs / Search / Memory</text>
+  <rect x="70" y="500" rx="26" ry="26" width="1060" height="78" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="600" y="533" text-anchor="middle" font-size="20" font-weight="700" fill="#111827">本地状态层</text>
+  <text x="600" y="560" text-anchor="middle" font-size="16" fill="#475569">配置文件 / 日志 / 记忆 / 工作区文件</text>
+  <path d="M600 130 L600 170" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6 6"/>
+  <path d="M345 280 L345 330" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6 6"/>
+  <path d="M855 280 L855 330" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6 6"/>
+  <path d="M600 450 L600 500" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6 6"/>
+</svg>
 </div>
 
 <div class="mini-kpis">
@@ -759,7 +831,21 @@ Warelay → Clawdbot → Moltbot → OpenClaw
 ## WSL2 是什么
 
 <div class="diagram-box">
-![bg contain](assets/wsl2-architecture.svg)
+<svg viewBox="0 0 1200 560" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="560" fill="#f8fafc"/>
+  <rect x="60" y="60" width="1080" height="120" rx="28" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+  <text x="120" y="110" font-size="28" font-weight="800" fill="#1d4ed8">Windows 层</text>
+  <text x="120" y="145" font-size="18" fill="#334155">PowerShell、浏览器 Dashboard、飞书客户端</text>
+  <rect x="110" y="220" width="980" height="150" rx="30" fill="#ecfdf5" stroke="#86efac" stroke-width="2"/>
+  <text x="170" y="285" font-size="32" font-weight="800" fill="#047857">WSL2 Ubuntu 层</text>
+  <text x="170" y="322" font-size="18" fill="#334155">OpenClaw CLI、Gateway 服务、配置与日志</text>
+  <text x="170" y="350" font-size="16" fill="#64748b">这是 OpenClaw 真正主要运行的环境，所以兼容性更稳。</text>
+  <rect x="60" y="410" width="1080" height="90" rx="28" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="2"/>
+  <text x="120" y="460" font-size="28" font-weight="800" fill="#6d28d9">外部服务层</text>
+  <text x="120" y="490" font-size="18" fill="#334155">Feishu 平台、模型 API、插件工具</text>
+  <path d="M600 180 L600 220" stroke="#94a3b8" stroke-width="4" stroke-dasharray="8 8"/>
+  <path d="M600 370 L600 410" stroke="#94a3b8" stroke-width="4" stroke-dasharray="8 8"/>
+</svg>
 </div>
 
 <div class="note-strip">
@@ -837,20 +923,14 @@ systemd=true</code></pre>
 
 ## 飞书接入总览
 
-<div class="mermaid-card">
-<pre class="mermaid">flowchart LR
-    classDef green fill:#ecfdf5,stroke:#10b981,stroke-width:2px,color:#065f46;
-    classDef blue fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1d4ed8;
-    classDef purple fill:#f5f3ff,stroke:#8b5cf6,stroke-width:2px,color:#6d28d9;
-    classDef gold fill:#fffbeb,stroke:#f59e0b,stroke-width:2px,color:#92400e;
-
-    A[🏢 创建应用]:::blue --> B[🔑 获取 App ID / Secret]:::purple
-    B --> C[🤖 开启 Bot 能力]:::green
-    C --> D[📡 配置事件订阅]:::blue
-    D --> E[⚙️ 接入 OpenClaw]:::purple
-    E --> F[💬 首条消息测试]:::green
-    F --> G[✅ 完成 Pairing]:::gold
-</pre>
+<div class="html-flow">
+  <div class="node blue"><span class="emoji">🏢</span><strong>创建应用</strong><br><span class="small">准备企业应用</span></div>
+  <div class="arrow">→</div>
+  <div class="node purple"><span class="emoji">🔑</span><strong>获取凭证</strong><br><span class="small">App ID / Secret</span></div>
+  <div class="arrow">→</div>
+  <div class="node green"><span class="emoji">🤖</span><strong>开启能力</strong><br><span class="small">Bot + 事件订阅</span></div>
+  <div class="arrow">→</div>
+  <div class="node gold"><span class="emoji">✅</span><strong>接入测试</strong><br><span class="small">录入 OpenClaw 并发消息</span></div>
 </div>
 
 <div class="note-strip">
@@ -976,24 +1056,32 @@ systemd=true</code></pre>
 
 ## 五、风险提示与安全建议
 
-<div class="mermaid-card">
-<pre class="mermaid">flowchart TD
-    classDef danger fill:#fef2f2,stroke:#ef4444,stroke-width:2px,color:#991b1b;
-    classDef warn fill:#fff7ed,stroke:#f59e0b,stroke-width:2px,color:#9a3412;
-    classDef safe fill:#ecfdf5,stroke:#10b981,stroke-width:2px,color:#065f46;
-    classDef neutral fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1d4ed8;
-
-    A[📨 外部消息进入]:::neutral --> B{来源是否可信?}:::warn
-    B -- 否 --> C[⚠️ 默认视为不可信输入]:::danger
-    C --> D[🛡️ 启用 Pairing / Mention / Allowlist]:::neutral
-    D --> E[✋ 高风险动作要求人工确认]:::safe
-    B -- 是 --> F[🤖 继续进入 Agent 处理]:::safe
-    F --> E
-</pre>
+<div class="html-safe">
+  <div class="safe-card danger">
+    <div class="label">风险入口</div>
+    <h3>外部消息默认不可信</h3>
+    <p>DM、群消息、外部输入，都不能直接当成可信指令。</p>
+  </div>
+  <div class="safe-bridge">→</div>
+  <div class="safe-card warn">
+    <div class="label">控制机制</div>
+    <h3>先加安全闸门</h3>
+    <p>启用 pairing、allowlist、requireMention，把入口先收住。</p>
+  </div>
 </div>
 
-<div class="note-strip">
-因为 OpenClaw 接入真实聊天平台，所以任何 DM、群消息、外部输入，都不应默认被视为可信操作指令。
+<div class="html-safe" style="grid-template-columns: 1fr 120px 1fr; margin-top: 12px;">
+  <div class="safe-card safe">
+    <div class="label">执行阶段</div>
+    <h3>高风险动作要人工确认</h3>
+    <p>涉及外发、审批、关键操作时，保留人工把关。</p>
+  </div>
+  <div class="safe-bridge">→</div>
+  <div class="safe-card">
+    <div class="label">目标</div>
+    <h3>让 OpenClaw 可用，但不过度放权</h3>
+    <p>既能提效，也不牺牲组织安全边界。</p>
+  </div>
 </div>
 
 ---
