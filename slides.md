@@ -356,6 +356,57 @@ section.lead blockquote {
   color: #1e3a8a;
   font-size: 16px;
 }
+  .flow-band {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .flow-node {
+    flex: 1;
+    border-radius: 18px;
+    padding: 18px 16px;
+    border: 1px solid var(--color-border);
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    text-align: center;
+  }
+
+  .flow-node .emoji {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--color-muted);
+    font-size: 26px;
+    font-weight: 800;
+  }
+
+  .mini-kpis {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .mini-kpi {
+    border-radius: 16px;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid var(--color-border);
+  }
+
+  .mini-kpi strong {
+    display: block;
+    font-size: 30px;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
 </style>
 
 <!-- _class: lead -->
@@ -456,32 +507,14 @@ section.lead blockquote {
 
 ## OpenClaw 如何工作
 
-<div class="step-flow">
-
-<div class="step-card">
-<div class="step-num">1</div>
-<h3>消息进入</h3>
-<p>用户从飞书、网页或其它渠道发起请求。</p>
-</div>
-
-<div class="step-card">
-<div class="step-num">2</div>
-<h3>Gateway 路由</h3>
-<p>OpenClaw Gateway 接收消息并分配给对应 Agent。</p>
-</div>
-
-<div class="step-card">
-<div class="step-num">3</div>
-<h3>模型 + 工具</h3>
-<p>Agent 调用模型、技能、浏览器、文档等工具完成任务。</p>
-</div>
-
-<div class="step-card">
-<div class="step-num">4</div>
-<h3>结果返回</h3>
-<p>处理结果再回到原渠道，形成完整闭环。</p>
-</div>
-
+<div class="flow-band">
+  <div class="flow-node"><span class="emoji">💬</span><strong>消息进入</strong><br><span class="small">飞书 / 网页 / 其它渠道</span></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-node"><span class="emoji">🧭</span><strong>Gateway 路由</strong><br><span class="small">接收消息、分配 Agent</span></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-node"><span class="emoji">🛠️</span><strong>模型 + 工具</strong><br><span class="small">推理、搜索、文档、浏览器</span></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-node"><span class="emoji">✅</span><strong>结果返回</strong><br><span class="small">回到原来的消息渠道</span></div>
 </div>
 
 ---
@@ -490,7 +523,7 @@ section.lead blockquote {
 
 <div class="arch-stack">
   <div class="arch-box"><strong>消息渠道层</strong><br>Feishu / Telegram / Dashboard / 更多平台</div>
-  <div class="arch-box"><strong>Gateway</strong><br>消息接收、路由、权限控制、会话管理</div>
+  <div class="arch-box" style="background:linear-gradient(135deg,#ecfeff 0%,#f0fdf4 100%);"><strong>Gateway</strong><br>消息接收、路由、权限控制、会话管理</div>
   <div class="two-col">
     <div class="arch-box"><strong>Agent Runtime</strong><br>上下文、推理、任务编排</div>
     <div class="arch-box"><strong>Skills / Tools</strong><br>Browser / Exec / Docs / Search / Memory</div>
@@ -498,8 +531,10 @@ section.lead blockquote {
   <div class="arch-box"><strong>本地状态层</strong><br>配置文件 / 日志 / 记忆 / 工作区文件</div>
 </div>
 
-<div class="note-strip">
-培训里最重要的理解是，OpenClaw 不是单点工具，而是一个把“聊天入口、模型能力、真实工具、长期状态”连接起来的平台。
+<div class="mini-kpis">
+  <div class="mini-kpi"><strong>20+</strong>接入渠道</div>
+  <div class="mini-kpi"><strong>本地优先</strong>数据和状态自己掌控</div>
+  <div class="mini-kpi"><strong>可扩展</strong>技能和工具可持续增加</div>
 </div>
 
 ---
@@ -626,66 +661,29 @@ Warelay → Clawdbot → Moltbot → OpenClaw
 
 ---
 
-## 什么是 WSL2
+## WSL2 是什么，以及怎么装
 
 <div class="two-col">
 
 <div class="feature-box">
-<div class="label">给非技术同事的解释</div>
+<div class="label">一句话解释</div>
 <h3>Windows 里的 Linux 工作区</h3>
-<p>你平时还是用 Windows，但真正跑 OpenClaw 的，是 WSL2 里的 Ubuntu 环境。</p>
-</div>
-
-<div class="feature-box">
-<div class="label">为什么它重要</div>
-<h3>更像官方标准环境</h3>
-<p>很多命令、服务、依赖都更贴近 Linux，踩坑更少，团队也更容易统一安装步骤。</p>
-</div>
-
-</div>
-
----
-
-## Windows + WSL2 + OpenClaw 架构图
-
-<div class="three-col">
-
-<div class="feature-box">
-<div class="label">Windows 层</div>
-<ul class="compact-list">
-<li>PowerShell</li>
-<li>浏览器 Dashboard</li>
-<li>飞书客户端</li>
-</ul>
-</div>
-
-<div class="feature-box green">
-<div class="label">WSL2 Ubuntu 层</div>
-<ul class="compact-list">
-<li>OpenClaw CLI</li>
-<li>Gateway 服务</li>
-<li>配置与日志</li>
-</ul>
+<p>你平时还是用 Windows，但真正跑 OpenClaw 的，是 WSL2 里的 Ubuntu 环境，所以兼容性更稳。</p>
 </div>
 
 <div class="feature-box blue">
-<div class="label">外部服务层</div>
+<div class="label">三层架构</div>
 <ul class="compact-list">
-<li>Feishu 平台</li>
-<li>模型 API</li>
-<li>其它插件 / 工具</li>
+<li><strong>Windows 层</strong>：PowerShell、浏览器、飞书客户端</li>
+<li><strong>WSL2 层</strong>：OpenClaw CLI、Gateway、配置文件</li>
+<li><strong>外部服务层</strong>：Feishu 平台、模型 API、插件工具</li>
 </ul>
+<p class="small">消息路径：飞书消息 → Gateway → 模型/工具 → 返回飞书。</p>
 </div>
 
 </div>
 
-<div class="note-strip">
-消息路径可以简单理解为：<strong>人在飞书发消息 → Feishu 把事件交给 Gateway → Gateway 调用模型和工具 → 结果再回到飞书。</strong>
-</div>
-
----
-
-## WSL2 安装 4 步法
+### 安装 4 步法
 
 <div class="step-flow">
 
@@ -722,129 +720,61 @@ systemd=true</code></pre>
 
 ---
 
-## 安装成功怎么判断
+## 安装成功怎么判断 + 飞书接入总览
 
-<div class="three-col">
-
-<div class="feature-box">
-<div class="label">检查 1</div>
-<h3>Gateway 正常</h3>
-<p><code>openclaw gateway status</code> 能看到服务状态。</p>
-</div>
+<div class="two-col">
 
 <div class="feature-box">
-<div class="label">检查 2</div>
-<h3>Dashboard 可打开</h3>
-<p><code>openclaw dashboard</code> 能在浏览器里正常打开控制台。</p>
+<div class="label">安装完成判断</div>
+<ul>
+<li><code>openclaw gateway status</code> 能看到服务状态</li>
+<li><code>openclaw dashboard</code> 能正常打开控制台</li>
+<li>首条测试消息能收到回复</li>
+</ul>
 </div>
 
-<div class="feature-box">
-<div class="label">检查 3</div>
-<h3>首条消息可回复</h3>
-<p>无论在控制台还是飞书，发出首条消息都能拿到结果。</p>
+<div class="feature-box green">
+<div class="label">飞书接入总览</div>
+<ul>
+<li>创建企业应用</li>
+<li>拿到 <strong>App ID</strong> 和 <strong>App Secret</strong></li>
+<li>开 Bot 能力和消息事件订阅</li>
+<li>在 OpenClaw 中录入并测试</li>
+</ul>
 </div>
 
+</div>
+
+<div class="note-strip">
+对培训对象来说，先完成“装好 OpenClaw + 飞书能收发消息”这个最小闭环，比先理解所有配置字段更重要。
 </div>
 
 ---
 
 ## 四、飞书集成怎么做
 
-### 先理解整体流程
-
-<div class="step-flow">
-
-<div class="step-card">
-<div class="step-num">1</div>
-<h3>创建飞书应用</h3>
-<p>先准备一个企业应用，拿到它的身份信息。</p>
-</div>
-
-<div class="step-card">
-<div class="step-num">2</div>
-<h3>开启 Bot 能力</h3>
-<p>让应用具备接收和回复消息的能力。</p>
-</div>
-
-<div class="step-card">
-<div class="step-num">3</div>
-<h3>接入 OpenClaw</h3>
-<p>把 App ID 和 App Secret 配进 OpenClaw。</p>
-</div>
-
-<div class="step-card">
-<div class="step-num">4</div>
-<h3>测试与配对</h3>
-<p>首次发消息后完成 pairing，就能进入正式使用。</p>
-</div>
-
-</div>
-
----
-
-## 飞书集成整体架构图
-
-<div class="three-col">
-
-<div class="feature-box">
-<div class="label">飞书侧</div>
-<ul class="compact-list">
-<li>用户发消息</li>
-<li>企业应用 / Bot</li>
-<li>事件订阅</li>
-</ul>
-</div>
-
-<div class="feature-box green">
-<div class="label">OpenClaw 侧</div>
-<ul class="compact-list">
-<li>Feishu Channel</li>
-<li>Gateway</li>
-<li>Pairing / 权限控制</li>
-</ul>
-</div>
-
-<div class="feature-box blue">
-<div class="label">能力侧</div>
-<ul class="compact-list">
-<li>模型 API</li>
-<li>工具 / Skills</li>
-<li>工作区与记忆</li>
-</ul>
-</div>
-
-</div>
-
----
-
-## 飞书接入前，需要准备什么
-
 <div class="two-col">
 
-<div class="feature-box">
-<h3>飞书侧</h3>
+<div class="feature-box blue">
+<div class="label">整体路径</div>
 <ul>
-<li>一个企业应用</li>
-<li><strong>App ID</strong></li>
-<li><strong>App Secret</strong></li>
-<li>Bot 能力</li>
-<li>消息事件订阅</li>
+<li>飞书侧准备企业应用、Bot 和事件订阅</li>
+<li>OpenClaw 侧录入 App ID / Secret</li>
+<li>启动 Gateway，发起首条测试消息</li>
+<li>首次私聊通过 pairing 完成授权</li>
 </ul>
 </div>
 
 <div class="feature-box">
-<h3>OpenClaw 侧</h3>
-<ul>
-<li>OpenClaw 已安装完成</li>
-<li>Gateway 可以正常运行</li>
-<li>能执行 <code>openclaw channels add</code></li>
-<li>准备好模型 API Key</li>
+<div class="label">三层架构</div>
+<ul class="compact-list">
+<li><strong>飞书侧</strong>：用户、企业应用、事件订阅</li>
+<li><strong>OpenClaw 侧</strong>：Feishu Channel、Gateway、Pairing</li>
+<li><strong>能力侧</strong>：模型 API、Tools、Workspace</li>
 </ul>
 </div>
 
 </div>
-
----
 
 ## 飞书接入 5 步法
 
@@ -860,34 +790,33 @@ systemd=true</code></pre>
 
 ---
 
-## OpenClaw 里的最小配置思路
+## 最小配置 + 首次 Pairing
+
+<div class="two-col">
 
 <div class="feature-box">
-
-### 对非技术人员，先记住这件事就够了
-
-真正要填进 OpenClaw 的核心信息，通常只有：
-
-- **App ID**
-- **App Secret**
-
-然后通过：
-
-```bash
-openclaw channels add
-```
-
-选择 **Feishu**，按提示填入即可。
-
+<div class="label">最小配置</div>
+<p>对非技术人员，先记住真正要填进 OpenClaw 的核心信息通常只有两个：</p>
+<ul>
+<li><strong>App ID</strong></li>
+<li><strong>App Secret</strong></li>
+</ul>
+<pre><code>openclaw channels add</code></pre>
+<p class="small">选择 Feishu，按提示填入即可。</p>
 </div>
 
-<div class="note-strip">
-培训时不建议一开始就深讲全部配置字段，先让大家完成“能接入、能发消息、能收到回复”这个最小闭环。
+<div class="feature-box gold">
+<div class="label">首次 Pairing</div>
+<p>未知用户第一次私聊机器人时，默认不会直接放行，而是先返回一个 pairing code。</p>
+<pre><code>openclaw pairing approve feishu &lt;CODE&gt;</code></pre>
+<p class="small">批准之后，这个用户就可以正常聊天。</p>
+</div>
+
 </div>
 
 ---
 
-## 首次测试与 Pairing 机制
+## 常见问题（安装 + 飞书）
 
 <div class="two-col">
 
