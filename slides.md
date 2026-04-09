@@ -675,7 +675,9 @@ Warelay → Clawdbot → Moltbot → OpenClaw
 
 ---
 
-## WSL2 是什么，以及怎么装
+## WSL2 是什么
+
+<div class="two-col">
 
 <div class="feature-box">
 <div class="label">一句话解释</div>
@@ -685,11 +687,17 @@ Warelay → Clawdbot → Moltbot → OpenClaw
 
 <div class="feature-box blue">
 <div class="label">三层架构</div>
-<p><strong>Windows 层</strong>：PowerShell、浏览器、飞书客户端<br>
-<strong>WSL2 层</strong>：OpenClaw CLI、Gateway、配置文件<br>
-<strong>外部服务层</strong>：Feishu 平台、模型 API、插件工具</p>
+<p><strong>Windows 层</strong>：PowerShell、浏览器、飞书客户端</p>
+<p><strong>WSL2 层</strong>：OpenClaw CLI、Gateway、配置文件</p>
+<p><strong>外部服务层</strong>：Feishu 平台、模型 API、插件工具</p>
 <p class="small">消息路径：飞书消息 → Gateway → 模型/工具 → 返回飞书。</p>
 </div>
+
+</div>
+
+---
+
+## WSL2 安装 4 步法
 
 <div class="step-flow">
 
