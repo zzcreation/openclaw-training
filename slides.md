@@ -734,33 +734,50 @@ systemd=true</code></pre>
 
 ---
 
-## 安装成功怎么判断 + 飞书接入总览
+## 安装成功怎么判断
 
-<div class="two-col">
+<div class="three-col">
 
 <div class="feature-box">
-<div class="label">安装完成判断</div>
-<ul>
-<li><code>openclaw gateway status</code> 能看到服务状态</li>
-<li><code>openclaw dashboard</code> 能正常打开控制台</li>
-<li>首条测试消息能收到回复</li>
-</ul>
+<div class="label">检查 1</div>
+<h3>Gateway 正常</h3>
+<p><code>openclaw gateway status</code> 能看到服务状态。</p>
+</div>
+
+<div class="feature-box">
+<div class="label">检查 2</div>
+<h3>Dashboard 可打开</h3>
+<p><code>openclaw dashboard</code> 能正常打开控制台。</p>
 </div>
 
 <div class="feature-box green">
-<div class="label">飞书接入总览</div>
-<ul>
-<li>创建企业应用</li>
-<li>拿到 <strong>App ID</strong> 和 <strong>App Secret</strong></li>
-<li>开 Bot 能力和消息事件订阅</li>
-<li>在 OpenClaw 中录入并测试</li>
-</ul>
+<div class="label">检查 3</div>
+<h3>首条消息可回复</h3>
+<p>无论在控制台还是飞书，发出首条测试消息都能拿到结果。</p>
 </div>
 
 </div>
 
 <div class="note-strip">
-对培训对象来说，先完成“装好 OpenClaw + 飞书能收发消息”这个最小闭环，比先理解所有配置字段更重要。
+先完成“装好 OpenClaw + 能正常回消息”这个最小闭环，再讲更细的配置，会更适合培训节奏。
+</div>
+
+---
+
+## 飞书接入总览
+
+<div class="flow-band">
+  <div class="flow-node"><span class="emoji">🏢</span><strong>创建应用</strong><br><span class="small">准备企业应用</span></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-node"><span class="emoji">🔑</span><strong>拿到凭证</strong><br><span class="small">App ID / App Secret</span></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-node"><span class="emoji">🤖</span><strong>开启能力</strong><br><span class="small">Bot + 事件订阅</span></div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-node"><span class="emoji">🚀</span><strong>接入测试</strong><br><span class="small">录入 OpenClaw 并发首条消息</span></div>
+</div>
+
+<div class="note-strip">
+对培训对象来说，飞书集成先抓住主线就够了，不需要一开始就展开所有配置字段。
 </div>
 
 ---
