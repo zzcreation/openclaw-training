@@ -421,6 +421,61 @@ section.lead blockquote {
     line-height: 1.1;
     margin-bottom: 6px;
   }
+
+  .check-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .check-card {
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    padding: 18px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+
+  .check-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.10);
+    border-color: #cbd5e1;
+  }
+
+  .check-card .icon {
+    font-size: 26px;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .phase-roadmap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 18px;
+  }
+
+  .phase-card {
+    border-radius: 20px;
+    padding: 20px;
+    color: white;
+    min-height: 180px;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+  }
+
+  .phase-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.14);
+  }
+
+  .phase-card.p1 { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+  .phase-card.p2 { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); }
+  .phase-card.p3 { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+
+  .phase-card h3, .phase-card p, .phase-card li, .phase-card .label {
+    color: white;
+  }
 </style>
 
 <!-- _class: lead -->
@@ -857,6 +912,7 @@ systemd=true</code></pre>
 <div class="label">为什么会看到配对码</div>
 <h3>这是默认安全机制</h3>
 <p>未知用户第一次私聊机器人时，默认不会直接放行，而是先返回一个 pairing code。</p>
+<pre><code>openclaw pairing approve feishu &lt;CODE&gt;</code></pre>
 </div>
 
 <div class="feature-box green">
@@ -866,8 +922,6 @@ systemd=true</code></pre>
 </div>
 
 </div>
-
-<pre><code>openclaw pairing approve feishu &lt;CODE&gt;</code></pre>
 
 ---
 
@@ -910,37 +964,47 @@ systemd=true</code></pre>
 
 ## 安全检查清单
 
-- ✅ 使用 <code>pairing</code> 作为默认私聊策略
-- ✅ 只给飞书应用最小必要权限
-- ✅ 不把 API 密钥提交到代码仓库
-- ✅ 定期更新 OpenClaw 版本
-- ✅ 群聊先从 allowlist 或 requireMention 开始
-- ✅ 重要外发动作保留人工确认
+<div class="check-grid">
+  <div class="check-card"><span class="icon">🔐</span><strong>默认启用 pairing</strong><p class="small">私聊先配对，再建立稳定会话。</p></div>
+  <div class="check-card"><span class="icon">🪪</span><strong>最小权限原则</strong><p class="small">飞书应用只给必要权限，不多开。</p></div>
+  <div class="check-card"><span class="icon">🧯</span><strong>密钥不入库</strong><p class="small">API Key 不提交到 Git 仓库。</p></div>
+  <div class="check-card"><span class="icon">🔄</span><strong>保持更新</strong><p class="small">OpenClaw 版本和依赖定期升级。</p></div>
+  <div class="check-card"><span class="icon">👀</span><strong>群聊先收口</strong><p class="small">先从 allowlist 或 requireMention 开始。</p></div>
+  <div class="check-card"><span class="icon">✋</span><strong>高风险动作人工确认</strong><p class="small">涉及外发、审批、关键操作时保留人工把关。</p></div>
+</div>
 
 ---
 
 ## 六、对 ZZCreation 的落地建议
 
-<div class="three-col">
-
-<div class="feature-box">
-<div class="label">阶段 1</div>
-<h3>个人试点</h3>
-<p>先在少数成员电脑上完成 WSL2 安装与飞书接入。</p>
-</div>
-
-<div class="feature-box">
-<div class="label">阶段 2</div>
-<h3>团队协作</h3>
-<p>沉淀可复用技能，统一常见操作与文档流程。</p>
-</div>
-
-<div class="feature-box">
-<div class="label">阶段 3</div>
-<h3>业务接入</h3>
-<p>把稳定的能力逐步接入内容、运营、项目管理等实际场景。</p>
-</div>
-
+<div class="phase-roadmap">
+  <div class="phase-card p1">
+    <div class="label">阶段 1</div>
+    <h3>个人试点</h3>
+    <p>先在少数成员电脑上完成 WSL2 安装与飞书接入。</p>
+    <ul>
+      <li>统一安装口径</li>
+      <li>验证消息闭环</li>
+    </ul>
+  </div>
+  <div class="phase-card p2">
+    <div class="label">阶段 2</div>
+    <h3>团队协作</h3>
+    <p>沉淀可复用技能，统一常见操作与文档流程。</p>
+    <ul>
+      <li>形成标准 SOP</li>
+      <li>沉淀内部技能</li>
+    </ul>
+  </div>
+  <div class="phase-card p3">
+    <div class="label">阶段 3</div>
+    <h3>业务接入</h3>
+    <p>把稳定的能力逐步接入内容、运营、项目管理等实际场景。</p>
+    <ul>
+      <li>接业务流程</li>
+      <li>保留人工审核</li>
+    </ul>
+  </div>
 </div>
 
 ---
