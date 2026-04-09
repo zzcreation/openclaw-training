@@ -822,8 +822,8 @@ Warelay → Clawdbot → Moltbot → OpenClaw
   </div>
 </div>
 
-<div style="display:flex; justify-content:center; align-items:center;">
-  ![w:520px](assets/wsl2-architecture.svg)
+<div>
+<img src="assets/wsl2-architecture.svg" style="width: 520px; display: block; margin: 0 auto;" />
 </div>
 
 </div>
