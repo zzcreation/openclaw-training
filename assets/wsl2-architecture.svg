@@ -1,0 +1,15 @@
+<svg viewBox="0 0 1200 560" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="560" fill="#f8fafc"/>
+  <rect x="60" y="60" width="1080" height="120" rx="28" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+  <text x="120" y="110" font-size="28" font-weight="800" fill="#1d4ed8">Windows 层</text>
+  <text x="120" y="145" font-size="18" fill="#334155">PowerShell、浏览器 Dashboard、飞书客户端</text>
+  <rect x="110" y="220" width="980" height="150" rx="30" fill="#ecfdf5" stroke="#86efac" stroke-width="2"/>
+  <text x="170" y="285" font-size="32" font-weight="800" fill="#047857">WSL2 Ubuntu 层</text>
+  <text x="170" y="322" font-size="18" fill="#334155">OpenClaw CLI、Gateway 服务、配置与日志</text>
+  <text x="170" y="350" font-size="16" fill="#64748b">这是 OpenClaw 真正主要运行的环境，所以兼容性更稳。</text>
+  <rect x="60" y="410" width="1080" height="90" rx="28" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="2"/>
+  <text x="120" y="460" font-size="28" font-weight="800" fill="#6d28d9">外部服务层</text>
+  <text x="120" y="490" font-size="18" fill="#334155">Feishu 平台、模型 API、插件工具</text>
+  <path d="M600 180 L600 220" stroke="#94a3b8" stroke-width="4" stroke-dasharray="8 8"/>
+  <path d="M600 370 L600 410" stroke="#94a3b8" stroke-width="4" stroke-dasharray="8 8"/>
+</svg>
