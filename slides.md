@@ -803,10 +803,29 @@ Warelay → Clawdbot → Moltbot → OpenClaw
 
 ## WSL2 是什么
 
-![w:1120px](assets/wsl2-architecture.svg)
+<div class="two-col" style="align-items: center; gap: 24px;">
 
-<div class="note-strip">
-一句话理解，WSL2 就是在 Windows 里准备一套更稳定的 Linux 工作环境，让 OpenClaw 按它最熟悉的方式运行。
+<div>
+  <div class="feature-box">
+    <div class="label">一句话理解</div>
+    <h3>Windows 里的 Linux 工作区</h3>
+    <p>你平时还是用 Windows，但真正跑 OpenClaw 的，是 WSL2 里的 Ubuntu 环境，所以兼容性更稳。</p>
+  </div>
+
+  <div class="feature-box blue">
+    <div class="label">为什么培训里重点讲它</div>
+    <ul>
+      <li>Windows 用户最常见、也最容易卡住</li>
+      <li>理解三层关系后，后面安装就不容易懵</li>
+      <li>能帮助非技术同学建立正确心智模型</li>
+    </ul>
+  </div>
+</div>
+
+<div style="display:flex; justify-content:center; align-items:center;">
+  ![w:520px](assets/wsl2-architecture.svg)
+</div>
+
 </div>
 
 ---
